@@ -1,5 +1,3 @@
-97. Injecting the Logging Service into Components
-6:21
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LoggingService} from '../logging.service';
 
