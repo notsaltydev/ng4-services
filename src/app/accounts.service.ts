@@ -1,6 +1,10 @@
+import {LoggingService} from "./logging.service";
+import {Injectable} from "@angular/core";
 /**
  * Created by Adam on 21.05.2017.
  */
+@Injectable()
+
 export class AccountsService {
   accounts = [
     {
@@ -17,11 +21,16 @@ export class AccountsService {
     }
   ];
 
+  constructor(private loggingService: LoggingService) {
+  }
+
   addAccount(name: string, status: string) {
     this.accounts.push({name, status});
+    this.loggingService.loggingChangeStatus(status);
   }
 
   updateAccount(id: number, status: string) {
     this.accounts[id].status = status;
+    this.loggingService.loggingChangeStatus(status);
   }
 }
